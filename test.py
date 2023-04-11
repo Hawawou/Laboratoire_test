@@ -58,9 +58,10 @@ class LaboratoireTest(unittest.TestCase):
     #     time.sleep()
 
 
-
+        driver.quit()
     
 
 if __name__ == "__main__":
     unittest.main()
     print("All tests passed")
+
