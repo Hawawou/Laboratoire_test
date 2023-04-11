@@ -58,7 +58,7 @@ class LaboratoireTest(unittest.TestCase):
     #     time.sleep()
 
 
-        driver.quit()
+        driver.close()
     
 
 if __name__ == "__main__":
