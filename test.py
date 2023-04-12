@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.options import Options
 
 chrome_options = Options()
 chrome_options.add_argument('–headless')
+chrome_options.add_argument("--remote-debugging-port=9222")
 chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_argument("start-maximized")
@@ -18,7 +19,7 @@ def typing(element, text):
         time.sleep(0.3)
 class LaboratoireTest(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome('/usr/bin/chromedriver', options=chrome_options)
+        self.driver = webdriver.Chrome('operadriver', options=chrome_options)
 
     def test_login(self):
         driver = self.driver
