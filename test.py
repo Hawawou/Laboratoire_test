@@ -6,11 +6,11 @@ from selenium.webdriver.chrome.options import Options
 
 chrome_options = Options()
 chrome_options.add_argument("--headless")
-# chrome_options.add_argument("window-size=1280x800")
-# chrome_options.add_argument("–disable-dev-shm-usage")
-# chrome_options.add_argument("start-maximized")
-# chrome_options.add_argument("disable-infobars")
-# chrme_options.binary_location
+chrome_options.add_argument("window-size=1280x800")
+chrome_options.add_argument("–disable-dev-shm-usage")
+chrome_options.add_argument("start-maximized")
+chrome_options.add_argument("disable-infobars")
+chrome_options.binary_location("/usr/bin/google-chrome")
 
 
 def typing(element, text):
