@@ -19,7 +19,7 @@ def typing(element, text):
         time.sleep(0.3)
 class LaboratoireTest(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome('operadriver', options=chrome_options)
+        self.driver = webdriver.Chrome(options=chrome_options)
 
     def test_login(self):
         driver = self.driver
