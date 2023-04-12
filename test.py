@@ -4,13 +4,14 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
-chrome_options = Options()
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("window-size=1280x800")
-chrome_options.add_argument("–disable-dev-shm-usage")
-chrome_options.add_argument("start-maximized")
-chrome_options.add_argument("disable-infobars")
-chrome_options.binary_location("/usr/bin/google-chrome")
+options = Options()
+options.add_argument("--headless")
+options.add_argument("window-size=1280x800")
+options.add_argument("–disable-dev-shm-usage")
+options.add_argument("start-maximized")
+options.add_argument("disable-infobars")
+options.add_argument("--no-sandbox")
+options.binary_location("/usr/bin/google-chrome")
 
 
 def typing(element, text):
@@ -19,7 +20,7 @@ def typing(element, text):
         time.sleep(0.3)
 class LaboratoireTest(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome(options=chrome_options)
+        self.driver = webdriver.Chrome(options)
 
     def test_login(self):
         driver = self.driver
