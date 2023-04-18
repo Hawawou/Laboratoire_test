@@ -4,15 +4,17 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
-options = Options()
-options.add_argument("--headless")
-options.add_argument("window-size=1280x800")
-options.add_argument("–disable-dev-shm-usage")
-options.add_argument("start-maximized")
-options.add_argument("disable-infobars")
-options.add_argument("--no-sandbox")
+# options = Options()
+# options.add_argument("--headless")
+# options.add_argument("window-size=1280x800")
+# options.add_argument("–disable-dev-shm-usage")
+# options.add_argument("start-maximized")
+# options.add_argument("disable-infobars")
+# options.add_argument("--no-sandbox")
 # options.binary_location("/usr/bin/google-chrome")
 
+
+delay = 10 #sec
 
 def typing(element, text):
     for i in text:
@@ -20,7 +22,7 @@ def typing(element, text):
         time.sleep(0.3)
 class LaboratoireTest(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome(options=options)
+        self.driver = webdriver.Chrome()
 
     def test_login(self):
         driver = self.driver
@@ -40,17 +42,22 @@ class LaboratoireTest(unittest.TestCase):
         button = driver.find_element(By.CSS_SELECTOR, "button.btn.btn-main")
         button.click()
 
-        time.sleep(30)
+        print("Test completed")
 
     # def test_Patients(self):
     #     driver = self.driver
-    #     button_patient = driver.find_element(By.NAME, "Patients")
-    #     button_patient.click
+    #     button_patient = driver.find_elements(By.CLASS_NAME, ".header-link-link")
+    #     if len(button_patient) > 0:
+    #         button_patient[0].click()      
 
-    # def test_addUser(self):
+    # def test_addEmployee(self):
+
+
     #     driver = self.driver
-    #     employees = driver.find_element(By.XPATH, "//div[@id='root']/div[@class='kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-aside--enabled kt-aside--fixed kt-page--loading']/div[@class='page-wrapper']/div[@class='sidebar-container']/div[@class='sidebar open']/section[@class='nav-links nav-links-mobile']/a[@class='nav-link'][1]/div[@class='link-text']")
+    #     employees = driver.find_element(By.CSS_SELECTOR, "Employés")
     #     employees.click()
+
+
         
     #     fname = driver.find_element(By.NAME, "nom")
     #     typing(fname, "John")
@@ -69,7 +76,7 @@ class LaboratoireTest(unittest.TestCase):
     #     time.sleep()
 
       
-        driver.close()
+    #     driver.close()
     
 
 if __name__ == "__main__":
