@@ -1,0 +1,12 @@
+language: python3
+python3:
+  - "3.10.6"
+
+install:
+  - pip instal -r requirements.txt
+
+script: 
+  - python3 test.py
+
+
+
