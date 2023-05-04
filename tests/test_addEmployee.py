@@ -1,18 +1,22 @@
-import unittest
 import time
+import unittest
+import HtmlTestRunner
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
+
 
 def typing(element, text):
     for i in text:
         element.send_keys(i)
         time.sleep(0.3)
 
+
 class TestEmployee(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
-    
+
     def test_employee(self):
         driver = self.driver
         driver.get("http://51.38.42.38:3016/")
@@ -32,7 +36,7 @@ class TestEmployee(unittest.TestCase):
         button.click()
         time.sleep(10)
 
-# Create emloyee
+        # Create employee
         employees = driver.find_element(By.XPATH, "/html/body/div[1]/div/div[2]/div[1]/div/section/a[2]")
         employees.click()
         time.sleep(1)
@@ -83,10 +87,9 @@ class TestEmployee(unittest.TestCase):
 
         time.sleep(5)
 
-        def tearDown(self):
-            self.driver.quit()
+    def tearDown(self):
+        self.driver.quit()
+
 
 if __name__ == '__main__':
-    unittest.main()
-
-    
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='Reports'))

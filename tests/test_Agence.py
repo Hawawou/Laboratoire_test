@@ -1,18 +1,20 @@
 import unittest
-import time 
-from selenium import webdriver 
+import time
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
+
 
 def typing(element, text):
     for i in text:
         element.send_keys(i)
         time.sleep(0.3)
 
+
 class TestAgence(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
-    
+
     def test_login(self):
         driver = self.driver
         driver.get("http://51.38.42.38:3016/")
@@ -36,7 +38,7 @@ class TestAgence(unittest.TestCase):
         agence.click()
         time.sleep(5)
 
-# add agency
+        # add agency
         add_agence = driver.find_element(By.CLASS_NAME, 'add-agency-item')
         add_agence.click
         time.sleep(10)
@@ -56,7 +58,7 @@ class TestAgence(unittest.TestCase):
         pays = Select(driver.find_element(By.NAME, 'pays'))
         pays.select_by_visible_text("Cameroun")
         time.sleep(1)
-        
+
         ville = driver.find_element(By.NAME, 'ville')
         typing(ville, 'Yaounde')
         time.sleep(1)
@@ -66,10 +68,17 @@ class TestAgence(unittest.TestCase):
         time.sleep(1)
 
         create = driver.find_element(By.CSS_SELECTOR, 'button.btn.btn-main')
-        create.click(10)
+        create.click()
+
+        time.sleep(10)
+    #     view agency
+        agency = driver.find_element(By.XPATH, '/html/body/div[1]/div/div[2]/div[2]/div[1]/div[2]/div/div/a[1]')
+        agency.click()
+        time.sleep(5)
 
     def tearDown(self):
         self.driver.quit()
+
 
 if __name__ == '__main__':
     unittest.main()
